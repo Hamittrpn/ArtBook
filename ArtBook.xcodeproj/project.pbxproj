@@ -13,6 +13,7 @@
 		954F429B23361CC4004C7A53 /* ArtBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 954F429923361CC4004C7A53 /* ArtBook.xcdatamodeld */; };
 		954F429D23361CC5004C7A53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 954F429C23361CC5004C7A53 /* Assets.xcassets */; };
 		954F42A023361CC5004C7A53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954F429E23361CC5004C7A53 /* LaunchScreen.storyboard */; };
+		954F42A823362049004C7A53 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954F42A723362049004C7A53 /* DetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		954F429C23361CC5004C7A53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		954F429F23361CC5004C7A53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		954F42A123361CC5004C7A53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		954F42A723362049004C7A53 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				954F429223361CC4004C7A53 /* AppDelegate.swift */,
 				954F429423361CC4004C7A53 /* ViewController.swift */,
+				954F42A723362049004C7A53 /* DetailsVC.swift */,
 				954F429623361CC4004C7A53 /* Main.storyboard */,
 				954F429C23361CC5004C7A53 /* Assets.xcassets */,
 				954F429E23361CC5004C7A53 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				954F429523361CC4004C7A53 /* ViewController.swift in Sources */,
+				954F42A823362049004C7A53 /* DetailsVC.swift in Sources */,
 				954F429B23361CC4004C7A53 /* ArtBook.xcdatamodeld in Sources */,
 				954F429323361CC4004C7A53 /* AppDelegate.swift in Sources */,
 			);
