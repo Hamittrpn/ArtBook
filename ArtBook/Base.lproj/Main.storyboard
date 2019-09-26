@@ -34,6 +34,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Rhe-uO-KgZ"/>
                     <connections>
+                        <outlet property="tableView" destination="Utw-fQ-eN2" id="qUA-3f-bHo"/>
                         <segue destination="wJu-wb-04A" kind="show" identifier="toDetailsVC" id="qrZ-e1-2gC"/>
                     </connections>
                 </viewController>
@@ -48,13 +49,68 @@
                     <view key="view" contentMode="scaleToFill" id="N7D-Ok-HCT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select.png" translatesAutoresizingMaskIntoConstraints="NO" id="NyW-xz-SF6">
+                                <rect key="frame" x="75" y="136" width="264" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="KJD-k8-npR"/>
+                                    <constraint firstAttribute="width" constant="264" id="NsI-of-36q"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y1H-va-2b1">
+                                <rect key="frame" x="82" y="481" width="250" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PVO-Wt-2mp">
+                                <rect key="frame" x="82" y="541" width="250" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AX8-a5-erK">
+                                <rect key="frame" x="82" y="601" width="250" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Kg-6H-nCr">
+                                <rect key="frame" x="190" y="681" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="wJu-wb-04A" eventType="touchUpInside" id="2oo-NT-Vgp"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PVO-Wt-2mp" firstAttribute="trailing" secondItem="AX8-a5-erK" secondAttribute="trailing" id="1GL-v2-mlw"/>
+                            <constraint firstItem="6Kg-6H-nCr" firstAttribute="top" secondItem="AX8-a5-erK" secondAttribute="bottom" constant="50" id="3ac-9A-9Ar"/>
+                            <constraint firstItem="y1H-va-2b1" firstAttribute="leading" secondItem="PVO-Wt-2mp" secondAttribute="leading" id="F7o-8d-pdF"/>
+                            <constraint firstItem="y1H-va-2b1" firstAttribute="leading" secondItem="JWE-Tn-pVO" secondAttribute="leading" constant="82" id="HNk-ov-kVP"/>
+                            <constraint firstItem="AX8-a5-erK" firstAttribute="top" secondItem="PVO-Wt-2mp" secondAttribute="bottom" constant="30" id="I3r-Hn-mSg"/>
+                            <constraint firstItem="NyW-xz-SF6" firstAttribute="top" secondItem="JWE-Tn-pVO" secondAttribute="top" constant="48" id="K7C-p3-wHe"/>
+                            <constraint firstItem="AX8-a5-erK" firstAttribute="centerX" secondItem="6Kg-6H-nCr" secondAttribute="centerX" id="NJg-9c-CYS"/>
+                            <constraint firstItem="y1H-va-2b1" firstAttribute="trailing" secondItem="PVO-Wt-2mp" secondAttribute="trailing" id="VoI-xx-R6A"/>
+                            <constraint firstItem="NyW-xz-SF6" firstAttribute="centerX" secondItem="y1H-va-2b1" secondAttribute="centerX" id="Ya7-Qw-yyV"/>
+                            <constraint firstItem="y1H-va-2b1" firstAttribute="top" secondItem="NyW-xz-SF6" secondAttribute="bottom" constant="45" id="fAT-0E-gAa"/>
+                            <constraint firstItem="PVO-Wt-2mp" firstAttribute="top" secondItem="y1H-va-2b1" secondAttribute="bottom" constant="30" id="fdl-p5-btI"/>
+                            <constraint firstItem="PVO-Wt-2mp" firstAttribute="leading" secondItem="AX8-a5-erK" secondAttribute="leading" id="kVL-vW-R2J"/>
+                            <constraint firstItem="NyW-xz-SF6" firstAttribute="centerX" secondItem="N7D-Ok-HCT" secondAttribute="centerX" id="mV6-UN-IiU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JWE-Tn-pVO"/>
                     </view>
+                    <connections>
+                        <outlet property="artistText" destination="PVO-Wt-2mp" id="mAR-Gw-obx"/>
+                        <outlet property="imageView" destination="NyW-xz-SF6" id="fM1-lT-nvk"/>
+                        <outlet property="nameText" destination="y1H-va-2b1" id="uzp-V8-L0n"/>
+                        <outlet property="yearText" destination="AX8-a5-erK" id="SKy-GQ-5CL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVk-Zg-hTo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648" y="113"/>
+            <point key="canvasLocation" x="1647.826086956522" y="112.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ElQ-hh-7hT">
@@ -75,4 +131,7 @@
             <point key="canvasLocation" x="-143.47826086956522" y="112.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="select.png" width="264" height="300"/>
+    </resources>
 </document>
