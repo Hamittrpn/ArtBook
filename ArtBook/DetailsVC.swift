@@ -25,6 +25,39 @@ class DetailsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         
         if chosenPainting != ""{
             //CoreData
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            
+            let fetchReguest = NSFetchRequest<NSFetchRequestResult>(entityName: "Paintings")
+            let idString = chosenPaintingId?.uuidString // id yi atadım
+            fetchReguest.predicate = NSPredicate(format: "id = %@", idString!)
+            fetchReguest.returnsObjectsAsFaults = false
+            
+            do{
+                let results = try context.fetch(fetchReguest)
+                
+                if results.count > 0 {
+                    for result in results as! [NSManagedObject]{
+                        if let name = result.value(forKey: "name") as? String{
+                            nameText.text = name
+                        }
+                        if let artist = result.value(forKey: "artist") as? String{
+                            artistText.text = artist
+                        }
+                        if let year = result.value(forKey: "year") as? Int{
+                            yearText.text = String(year)
+                        }
+                        if let imageData = result.value(forKey: "image") as? Data{
+                            let image = UIImage(data: imageData)
+                            imageView.image = image
+                        }
+                    }
+                }
+            }
+            catch{
+                print("Error")
+            }
+            
         }
         
         //Recognizers
