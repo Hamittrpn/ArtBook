@@ -15,6 +15,7 @@ class DetailsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var artistText: UITextField!
     @IBOutlet weak var yearText: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     var chosenPainting = ""
     var chosenPaintingId : UUID?
@@ -22,8 +23,10 @@ class DetailsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         if chosenPainting != ""{
+            
+            saveButton.isEnabled = false // Save button silik gözükür
+            
             //CoreData
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
@@ -57,7 +60,8 @@ class DetailsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             catch{
                 print("Error")
             }
-            
+            saveButton.isHidden = false // Button görünür
+            saveButton.isEnabled = false // Ama tıklanılamaz
         }
         
         //Recognizers
@@ -78,8 +82,8 @@ class DetailsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.originalImage] as? UIImage
+        saveButton.isEnabled = true
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     @objc func hideKeyboard(){
